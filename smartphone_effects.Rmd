@@ -143,11 +143,5 @@ sessionInfo()
 
 ---
 
-## 4. 保存并 Knit
-
-1. 按 **Ctrl + S** 保存文件。  
-2. 在 RStudio 中点击 **Knit → Knit to PDF**。
-
-此时 RStudio 会使用你在 YAML 中指定的 xelatex 引擎，并跳过 pdfcrop，最终生成的 PDF 中就会包含所有 R 代码、`skim(df)` 的输出、回归结果表和交互效应图了。
 
 
