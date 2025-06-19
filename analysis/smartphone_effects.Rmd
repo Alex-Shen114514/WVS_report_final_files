@@ -144,6 +144,12 @@ kable(tbl, caption = "OLS Regression Results", booktabs = TRUE) %>%
 sessionInfo()
 ```
 
+## Replication materials
+
+All analysis code, the knitted PDF, and the one-line build script are openly
+available on GitHub:  
+<https://github.com/Alex-Shen114514/WVS_report_final_files>
+
 ---
 
 
