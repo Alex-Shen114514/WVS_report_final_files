@@ -2,11 +2,12 @@
 title: "Interactive Effects of Smartphone Ownership, Education, and Life Satisfaction"
 author: "Shen Chengrui (Alex)"
 date: "`r Sys.Date()`"
+
 output:
   pdf_document:
-    latex_engine: xelatex     
+    latex_engine: xelatex
     keep_tex: true
-    fig_crop: false           
+    fig_crop: false
 fontsize: 11pt
 geometry: margin=1in
 ---
@@ -28,15 +29,17 @@ library(skimr)
 library(estimatr)   
 library(boot)        
 library(purrr)       
-library(kableExtra)  
+library(kableExtra) 
+library(here) 
 ```
 
 ```{r data-clean}
-df_raw <- read_excel(
-  "C:/Users/12545/Desktop/Captures/F00013183-WVS_Wave_7_China_Excel_v5.1.xlsx",
-  sheet     = 1,
+df_raw <- readxl::read_excel(
+  "../data/F00013183-WVS_Wave_7_China_Excel_v5.1.xlsx",   
+  sheet = 1,
   col_names = TRUE
 )
+
 df <- df_raw %>%
   transmute(
     life_sat   = as.numeric(`Q49: Satisfaction with your life`),
