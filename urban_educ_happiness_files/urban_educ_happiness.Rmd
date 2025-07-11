@@ -1,0 +1,63 @@
+---
+title: "Effect of Education and Residence on Life Satisfaction – WVS China 2018"
+author: "Alex Shen"
+date: "`r Sys.Date()`"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+## Data and Methods
+
+World Values Survey, Wave 7 (China, 2018). Logistic regression predicting high life satisfaction (score ≥ 7) by education, urban/rural status, age, and sex, with education × urban interaction.
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+library(tidyverse)
+library(readxl)
+```
+
+```{r}
+# Adjust the path as needed
+df_raw <- read_excel("data/F00013183-WVS_Wave_7_China_Excel_v5.1.xlsx", sheet = 1)
+df <- df_raw %>%
+  transmute(
+    life_satisfaction = as.numeric(`Q49: Satisfaction with your life`),
+    education = factor(
+      as.numeric(`Q275R: Highest educational level: Respondent (recoded into 3 groups)`),
+      levels = 1:3,
+      labels = c("Primary", "Secondary", "Tertiary")
+    ),
+    urban = as.numeric(`H_URBRURAL: Urban-Rural`),
+    age = as.numeric(`Q262: Age`),
+    sex = as.numeric(`Q260: Sex`)
+  ) %>%
+  filter(
+    !is.na(life_satisfaction), !is.na(education), !is.na(urban), !is.na(age), !is.na(sex)
+  ) %>%
+  mutate(
+    urban_bin = if_else(urban == 1, 1, 0),
+    satisfied = if_else(life_satisfaction >= 7, 1, 0)
+  )
+nrow(df)
+```
+
+```{r regression}
+model <- glm(satisfied ~ education * urban_bin + age + sex, data = df, family = "binomial")
+summary(model)
+```
+
+```{r visualization}
+df %>%
+  group_by(education, urban_bin) %>%
+  summarise(mean_satisfied = mean(satisfied, na.rm = TRUE)) %>%
+  ggplot(aes(x = education, y = mean_satisfied, fill = factor(urban_bin, labels = c("Rural", "Urban")))) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(
+    x = "Education Level",
+    y = "Proportion Satisfied",
+    fill = "Residence",
+    title = "Effect of Education and Residence on Life Satisfaction"
+  ) +
+  theme_minimal()
+```

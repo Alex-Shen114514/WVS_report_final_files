@@ -37,3 +37,5 @@ markdown<br>## Data folder<br>Place the original file `WVS_Wave_7_China_Excel_v5
    ```r
    setwd("path/to/WVS_report_final_files")   # project root
    source("analysis/make_report.R")          # renders PDF into output/
+
+2024-07-04 update: Added urban?education?satisfaction analysis (RMarkdown and PDF included), showcasing rapid, customized data pipeline for large-scale coding tasks.
