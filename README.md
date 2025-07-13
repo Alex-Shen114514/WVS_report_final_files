@@ -1,41 +1,61 @@
-# WVS_report_final_files
-Analysis code and report for WVS smartphone study
-## Life Satisfaction ? Smartphone Use (WVS Wave 7 China)
+# WVS China 2018 ? Urban ? Education ? Life Satisfaction
 
-**Structure**
+**Last updated: 2024-07-11**
 
-| Folder | Content |
-|--------|---------|
-| `analysis/` | Main R Markdown: `smartphone_effects.Rmd` |
-| `figs/` | Output figures (ggpredict, facet plot) |
-| `output/` | Final PDF report |
-| `data/` | _Place WVS_Wave_7_China_Excel_v5.1.xlsx here (not committed)_ |
+---
 
-**Reproduce**
+## Project Highlights
 
-1. Clone this repo  
-2. Put the WVS Excel file into `data/`  
-3. Knit `analysis/smartphone_effects.Rmd` ? PDF
+- **Incremental Analysis:** [urban_educ_happiness.Rmd](urban_educ_happiness.Rmd) | [PDF Report](urban_educ_happiness.pdf)  
+  Logistic regression and visualization of how education and urban/rural status interact to shape life satisfaction (WVS Wave 7 China, n ? 3,000).
+- **Key Figure:**  
+  ![Main Result](incremental_demo_barplot_en.png)
+- **Key Findings:**  
+  - Higher education is associated with greater life satisfaction, especially for urban residents.
+  - The urban?rural satisfaction gap narrows at higher education levels.
 
-MIT License ? Maintainer: Alex Shen
-markdown<br>## Data folder<br>Place the original file `WVS_Wave_7_China_Excel_v5.1.xlsx` in `data/`.<br>Source & license: https://www.worldvaluessurvey.org (non-commercial academic use).<br>
-## How to reproduce the PDF report
+---
 
-1. **Clone** or download this repository  
-2. **Place raw data**  
-   - Download `WVS_Wave_7_China_Excel_v5.1.xlsx` from the World Values Survey website  
-   - Put the file into `data/` (keep the original filename)
-3. **Run the analysis**
+## Repository Structure
 
-   **? RStudio GUI**  
-   - Open `WVS_report_final_files.Rproj`  
-   - In *Files* pane double-click `analysis/smartphone_effects.Rmd`  
-   - Click **Knit** (PDF will appear in `output/`)
+| Folder/File        | Description                                               |
+|--------------------|----------------------------------------------------------|
+| `urban_educ_happiness.Rmd` | Main incremental RMarkdown script                 |
+| `urban_educ_happiness.pdf` | Auto-generated PDF report (incremental analysis)  |
+| `incremental_demo_barplot_en.png` | Key interaction plot                       |
+| `analysis/`        | Original RMarkdown and helper scripts (e.g., smartphone effects) |
+| `figs/`            | All output figures                                       |
+| `output/`          | Final reports (PDF/HTML)                                 |
+| `data/`            | Place the WVS Excel file here (not uploaded)             |
 
-   **? Console one-liner**
+---
 
-   ```r
-   setwd("path/to/WVS_report_final_files")   # project root
-   source("analysis/make_report.R")          # renders PDF into output/
+## How to Reproduce
 
-2024-07-04 update: Added urban?education?satisfaction analysis (RMarkdown and PDF included), showcasing rapid, customized data pipeline for large-scale coding tasks.
+1. **Download data**: [WVS_Wave_7_China_Excel_v5.1.xlsx](https://www.worldvaluessurvey.org/WVSDocumentationWV7.jsp)  
+2. **Place file** into `data/` folder  
+3. **Open** `urban_educ_happiness.Rmd` in RStudio  
+4. **Knit** to PDF or HTML for full report and plots
+
+---
+
+## About This Repo
+
+This repository supports applications for research/data positions (e.g., CUHK RA).  
+**All code and results are reproducible and ready for rapid extension to panel datasets (e.g., CFPS, CGSS).**  
+See [urban_educ_happiness.pdf](urban_educ_happiness.pdf) for a self-contained sample report.
+
+---
+
+## Contact
+
+**Chengrui (Alex) Shen**  
+Email: chengshen9-c@my.cityu.edu.hk/1254506674@qq.com
+
+---
+
+_MIT License_
+
+---
+
+_Thank you for your interest! For technical questions or collaboration, please contact above._
