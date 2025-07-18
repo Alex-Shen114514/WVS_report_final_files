@@ -1,0 +1,52 @@
+---
+title: "Trust to Life Satisfaction (WVS China 2018)"
+author: "Alex Shen"
+output:
+  pdf_document:
+    keep_tex: false
+fontsize: 11pt
+geometry: margin=1in
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(message = FALSE, warning = FALSE)
+library(tidyverse); library(readxl)
+df <- read_excel("data/F00013183-WVS_Wave_7_China_Excel_v5.1.xlsx") %>%
+   transmute(
+    life_sat = as.numeric(`Q49: Satisfaction with your life`),
+    trustGrp = case_when(
+      `Q57: Most people can be trusted` == 1 ~ "High trust",
+      `Q57: Most people can be trusted` == 2 ~ "Low trust",
+      TRUE                                   ~ NA_character_
+    ),
+    urban = factor(`H_URBRURAL: Urban-Rural`,
+                   levels = 1:2,
+                   labels = c("Urban", "Rural"))
+  ) %>% 
+  drop_na(life_sat, trustGrp, urban)
+```
+
+```{r}
+df_plot <- df %>% 
+  group_by(urban, trustGrp) %>% 
+  summarise(mean_sat = mean(life_sat), .groups = "drop")
+```
+
+```{r}
+gap_tbl <- df_plot %>% 
+  pivot_wider(names_from = trustGrp, values_from = mean_sat) %>% 
+  mutate(gap = `High trust` - `Low trust`)
+
+print(df_plot)  
+print(gap_tbl)   
+```
+
+```{r plot, echo=FALSE, fig.height=3}
+df_plot %>%                     # 已有的 4 行均值表
+  ggplot(aes(trustGrp, mean_sat, fill = urban)) +
+  geom_col(position = position_dodge()) +
+  labs(x = NULL,
+       y = "Mean life satisfaction (1–10)",
+       fill = NULL) +
+  theme_minimal(base_size = 10)
+```
