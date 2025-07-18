@@ -1,6 +1,12 @@
 # WVS China 2018 ? Urban ? Education ? Life Satisfaction
 
-**Last updated: 2024-07-11**
+**Last updated: 2025-07-18**
+
+---
+
+## ?? 1-Page Insight (PDF)
+**Trust ? Life Satisfaction ? Urban vs Rural**  
+[output/trust_insight.pdf](output/trust_insight.pdf)
 
 ---
 
