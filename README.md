@@ -1,4 +1,7 @@
-**How education and city life shape happiness in China ? a reproducible mini-study (WVS, Wave 7)**
+<h1 align="center">Urban Education & Happiness in China ????</h1>
+<p align="center"><b>How schooling and city life shape life-satisfaction ? a fully reproducible mini-study (WVS 2018)</b></p>
+
+?? **One-page insight PDF**: [trust_insight.pdf](output/trust_insight.pdf)
 # WVS China 2018  Urban  Education  Life Satisfaction
 
 **Last updated: 2025-07-18**
