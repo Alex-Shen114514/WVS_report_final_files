@@ -1,4 +1,5 @@
-# WVS China 2018 ? Urban ? Education ? Life Satisfaction
+**How education and city life shape happiness in China ? a reproducible mini-study (WVS, Wave 7)**
+# WVS China 2018  Urban  Education  Life Satisfaction
 
 **Last updated: 2025-07-18**
 
