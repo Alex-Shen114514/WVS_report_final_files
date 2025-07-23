@@ -1,10 +1,16 @@
 <h1 align="center">Urban Education & Happiness in China ????</h1>
 <p align="center"><b>How schooling and city life shape life-satisfaction ? a fully reproducible mini-study (WVS 2018)</b></p>
 
-?? **One-page insight PDF**: [trust_insight.pdf](output/trust_insight.pdf)
+## ?? Incremental Insights
+
+| Date | Insight | PDF |
+|------|---------|-----|
+| 2025-06-19 | Smartphone ? Education ? Life Satisfaction | [v0.1](output/v0.1_20250619_smartphone_education.pdf) |
+| 2025-07-13 | Trust gap (Urban vs Rural) | [v0.3](output/v0.3_20250713_trust_gap_urban_rural.pdf) |
+| 2025-07-21 | Education ? Residence interaction | [v0.4](output/v0.4_20250721_education_residence.pdf) |
 # WVS China 2018  Urban  Education  Life Satisfaction
 
-**Last updated: 2025-07-18**
+**Last updated: 2025-07-21**
 
 ---
 
